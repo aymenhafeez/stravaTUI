@@ -9,7 +9,7 @@ calculator
 
 <center>
   <figure> 
-    <img src="https://raw.githubusercontent.com/aymenhafeez/stravaTUI/refs/heads/master/media/recent.png" width="600" /> 
+    <img src="https://raw.githubusercontent.com/aymenhafeez/stravaTUI/refs/heads/main/media/recent.png" width="600" /> 
   </figure>
 </center>
 
