@@ -1,0 +1,33 @@
+from textual.theme import Theme
+
+darktheme = Theme(
+    name="darktheme",
+    primary="#6e86a6",
+    secondary="#3e5d7a",
+    accent="#FBB86C",
+    foreground="#9DA2A8",
+    background="#000000",
+    success="#A3BE8C",
+    warning="#EBCB8B",
+    error="#BF616A",
+    surface="#000000",
+    panel="#1a2328",
+    dark=True,
+    variables={
+        "block-cursor-text-style": "none",
+        "input-selection-background": "#81a1c1 35%",
+        "border": "#46ACB8",
+        "scrollbar": "#000000 80%",
+        "scrollbar-background": "#000000",
+        "scrollbar-hover": "#000000 60%",
+        "scrollbar-active": "#000000 60%",
+        "button-foreground": "#9DA2A8",
+        "button-color-foreground": "#9DA2A8",
+        "button-focus-text-style": "none",
+        "footer-background": "#000000",
+        "footer-foreground": "#7A7E82",
+        "footer-key-foreground": "#7A7E82",
+        "primary-background-darken-2": "#000000",
+        "secondary-background-darken-2": "#000000",
+    },
+)

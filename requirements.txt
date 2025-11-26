@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+requests
+loguru
+python-dotenv
+textual
+textual-plotext
+rich
+stravalib

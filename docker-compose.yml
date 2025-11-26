@@ -1,0 +1,9 @@
+services:
+  app:
+    build: .
+    ports:
+      - "5042:5042"
+    env_file: .env
+    volumes:
+      - .:/app
+    restart: unless-stopped
