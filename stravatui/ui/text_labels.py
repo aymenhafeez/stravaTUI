@@ -17,7 +17,7 @@ about_page_text = Text.assemble(
     ("Thanks for using "),
     ("stravaTUI", "#FBB86C bold"),
     ("\n\nFeel free to check out the project out on "),
-    (" Github", "link https://github.com/ #FFFFFF"),
+    (" Github", "link https://github.com/aymenhafeez/stravaTUI/ #FFFFFF"),
     ("\nIf you run into any problems/bugs please open an issue or "),
     ("get in touch", "link mailto:aymennh@gmail.com #FFFFFF"),
     (" directly"),
