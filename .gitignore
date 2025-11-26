@@ -2,6 +2,7 @@ __pycache__/
 *.pyc
 .mypy_cache/
 strava_token.json
-stravatui/data/*.json
 .env
 TODO.md
+stravatui/data/*
+!stravetui/data/.gitkeep
