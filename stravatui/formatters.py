@@ -84,4 +84,5 @@ def pace_to_minutes(pace_str: str) -> float | None:
         return None
 
     min_str, sec_str = pace_str.split(":")
+
     return int(min_str) + int(sec_str) / 60.0

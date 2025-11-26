@@ -147,6 +147,7 @@ class StravaTUIApp(App[None]):
         self.query_one("#race-results-table", DataTable).display = False
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
+        """Mapp button presses to corresponding pages."""
         BUTTON_MAP = {
             "overview-button": "overview-page",
             "last-five-button": "last-five-page",
@@ -206,7 +207,7 @@ class StravaTUIApp(App[None]):
             )
 
     def _load_data(self) -> None:
-        """Load and populate all data (runs in background thread)."""
+        """Load and populate all data in background thread."""
         _check_cache_modified_date()
         recent_data = get_recent_activities()
         all_time_data = all_time_run_stats()

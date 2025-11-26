@@ -185,8 +185,8 @@ def get_recent_activities() -> dict[str, list[str]]:
             }
 
         one_month_ago = datetime.now() - timedelta(days=60)
-        # 'after' parameter returns activities in chronological order
-        # so reverse the list to get newest first
+        # 'after' returns activities in chronological order so reverse the list
+        # to get newest first
         activities = list(reversed(list(client.get_activities(after=one_month_ago))))
 
         names = [str(act.name) for act in activities]
@@ -331,4 +331,5 @@ def aggregate_best_efforts(best_efforts_data: list[dict]) -> list[dict]:
                 }
 
     summary = sorted(best_by_distance.values(), key=lambda x: x["distance_m"])
+
     return summary
