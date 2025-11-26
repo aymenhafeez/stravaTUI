@@ -41,12 +41,19 @@ def create_overview_label(
         ELEVATIONS.items(), key=lambda x: abs(x[1] - all_time_elevation_gain)
     )[0]
 
-    return Text.assemble(
-        ("Here's an overview of some of your running stats.\n"),
-        ("You've ran around the distance of "),
-        (f"{closest_distance} ", "#4ec9b0 bold italic"),
-        ("this year, "),
-        ("\nand climbed over the height of "),
-        (f"{closest_elevation}", "#f0a16c bold italic"),
-        ("!"),
-    )
+    if closest_distance == "0":
+        return Text.assemble(
+            ("Here's an overview of some of your"),
+            ("running stats", "#4ec9b0 bold italic"),
+            ("!"),
+        )
+    else:
+        return Text.assemble(
+            ("Here's an overview of some of your running stats.\n"),
+            ("You've ran around the distance of "),
+            (f"{closest_distance} ", "#4ec9b0 bold italic"),
+            ("this year, "),
+            ("\nand climbed over the height of "),
+            (f"{closest_elevation}", "#f0a16c bold italic"),
+            ("!"),
+        )
