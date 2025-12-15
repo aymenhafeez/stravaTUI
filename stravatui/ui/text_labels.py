@@ -1,5 +1,6 @@
 from rich.text import Text
 
+from ..activity_utils import calculate_activity_totals, filter_valid_activities
 from ..formatters import DISTANCES, ELEVATIONS
 
 last_five_label = Text()
@@ -29,16 +30,38 @@ about_page_bottom_text = Text.assemble(
 )
 
 
+def _get_recent_elevation_gain_sum(recent_data):
+    distances = recent_data["distances"]
+    times = recent_data["times"]
+    total_elevation_gain = recent_data["total_elevation_gain"]
+    activity_type = recent_data["activity_type"]
+
+    run_indices = filter_valid_activities(
+        activity_type, distances, times, total_elevation_gain
+    )
+
+    recent_distance, recent_time, recent_elevation_gain = calculate_activity_totals(
+        distances, times, total_elevation_gain, run_indices
+    )
+
+    return recent_elevation_gain
+
+
 def create_overview_label(
-    all_time_distance_km: float, all_time_elevation_gain: float
+    all_time_distance_km: float, recent_data: dict[str, list[str]]
 ) -> Text:
-    """Create a label for the overview page baesd on user's all time distance and elevation gain."""
+    """
+    Create a label for the overview page based on user's all time distance and
+    recent elevation gain.
+    """
+    recent_elevation_gain = _get_recent_elevation_gain_sum(recent_data)
+
     closest_distance = min(
         DISTANCES.items(), key=lambda x: abs(x[1] - all_time_distance_km)
     )[0]
 
     closest_elevation = min(
-        ELEVATIONS.items(), key=lambda x: abs(x[1] - all_time_elevation_gain)
+        ELEVATIONS.items(), key=lambda x: abs(x[1] - recent_elevation_gain)
     )[0]
 
     if all_time_distance_km == 0:
@@ -50,10 +73,10 @@ def create_overview_label(
     else:
         return Text.assemble(
             ("Here's an overview of some of your running stats.\n"),
-            ("You've ran around the distance of "),
+            ("You've ran around to the distance of "),
             (f"{closest_distance} ", "#4ec9b0 bold italic"),
-            ("this year, "),
-            ("\nand climbed over the height of "),
-            (f"{closest_elevation}", "#f0a16c bold italic"),
-            ("!"),
+            ("during you Strava history, "),
+            ("\nand climbed close the height of "),
+            (f"{closest_elevation} ", "#f0a16c bold italic"),
+            ("over the last 60 days!"),
         )

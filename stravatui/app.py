@@ -236,9 +236,7 @@ class StravaTUIApp(App[None]):
         ytd_distance_km = float(ytd_run_data["ytd_distance"]) / 1000
         overview_label_widget = self.query_one("#overview-label", Label)
         overview_label_widget.update(
-            create_overview_label(
-                ytd_distance_km, float(ytd_run_data["ytd_elevation_gain"])
-            )
+            create_overview_label(ytd_distance_km, recent_data)
         )
 
         populate_activities_table(
