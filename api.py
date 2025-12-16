@@ -72,7 +72,7 @@ async def exchange_token(code: Optional[str] = None):
     return HTMLResponse(f"""
     <h2>Success!</h2>
     <pre>{json.dumps(data, indent=2)}</pre>
-    <p>Token saved to <code>stravalib/data/strava_token.json</code></p>
+    <p>Token saved to <code>strava_token.json</code></p>
     <a href="/">Back</a>
     """)
 

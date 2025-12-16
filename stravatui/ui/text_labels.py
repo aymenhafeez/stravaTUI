@@ -75,7 +75,7 @@ def create_overview_label(
             ("Here's an overview of some of your running stats.\n"),
             ("You've ran around to the distance of "),
             (f"{closest_distance} ", "#4ec9b0 bold italic"),
-            ("during you Strava history, "),
+            ("during your Strava history, "),
             ("\nand climbed close the height of "),
             (f"{closest_elevation} ", "#f0a16c bold italic"),
             ("over the last 60 days!"),
