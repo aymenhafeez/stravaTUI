@@ -3,7 +3,7 @@
    ============================================================================ */
 
 Screen {
-    background: #000000;
+    /* background: #000000; */
 }
 
 Footer {
@@ -51,8 +51,8 @@ Footer {
 }
 
 #overview-button {
-    background: #000000;
-    color: #9DA2A8;
+    /* background: #000000; */
+    /* color: #9DA2A8; */
     height: 3;
     width: 1fr;
     margin: 1 1 1 1;
@@ -61,8 +61,8 @@ Footer {
 
 #overview-button:focus,
 #overview-button:hover {
-    background: #000000;
-    color: #FFFFFF;
+    /* background: #000000; */
+    /* color: #FFFFFF; */
     height: 3;
     width: 1fr;
     margin: 1 1 1 1;
@@ -72,7 +72,7 @@ Footer {
 #last-five-button {
     height: 3;
     width: 1fr;
-    background: #000000;
+    /* background: #000000; */
     color: #9DA2A8;
     margin: 1 1 1 1;
     border: none;
@@ -82,15 +82,15 @@ Footer {
 #last-five-button:hover {
     height: 3;
     width: 1fr;
-    background: #000000;
-    color: #FFFFFF;
+    /* background: #000000; */
+    /* color: #FFFFFF; */
     margin: 1 1 1 1;
     border: none;
 }
 
 #plot-button {
-    background: #000000;
-    color: #9DA2A8;
+    /* background: #000000; */
+    /* color: #9DA2A8; */
     height: 3;
     width: 1fr;
     margin: 1 1 1 1;
@@ -99,8 +99,8 @@ Footer {
 
 #plot-button:focus,
 #plot-button:hover {
-    background: #000000;
-    color: #FFFFFF;
+    /* background: #000000; */
+    /* color: #FFFFFF; */
     height: 3;
     width: 1fr;
     margin: 1 1 1 1;
@@ -108,8 +108,8 @@ Footer {
 }
 
 #about-button {
-    background: #000000;
-    color: #9DA2A8;
+    /* background: #000000; */
+    /* color: #9DA2A8; */
     height: 3;
     width: 1fr;
     margin: 1 1 1 1;
@@ -118,8 +118,8 @@ Footer {
 
 #about-button:focus,
 #about-button:hover {
-    background: #000000;
-    color: #FFFFFF;
+    /* background: #000000; */
+    /* color: #FFFFFF; */
     height: 3;
     width: 1fr;
     margin: 1 1 1 1;
@@ -254,18 +254,18 @@ ContentSwitcher {
 }
 
 DataTable {
-    background: #000000;
+    /* background: #000000; */
     border: round white 30%;
     text-align: center;
 }
 DataTable .datatable--header {
-    background: #000000;
-    color: #9da2a8;
+    /* background: #000000; */
+    /* color: #9da2a8; */
     text-style: none;
 }
 DataTable .datatable--cursor {
-    background: #4ec9b0;
-    color: #000000;
+    /* background: #4ec9b0; */
+    /* color: #000000; */
     text-style: none;
 }
 
@@ -292,14 +292,14 @@ DataTable .datatable--cursor {
     width: 100%;
     text-align: center;
     text-style: bold;
-    color: #FFFFFF;
+    /* color: #FFFFFF; */
     margin-bottom: 1;
 }
 
 #calculator-subtitle {
     width: 100%;
     text-align: center;
-    color: #9DA2A8;
+    /* color: #9DA2A8; */
     margin-bottom: 2;
 }
 
@@ -330,8 +330,8 @@ DataTable .datatable--cursor {
 }
 
 #calculate-button {
-    background: #000000;
-    color: #9DA2A8;
+    /* background: #000000; */
+    /* color: #9DA2A8; */
     height: 5;
     width: 20%;
     margin-right: 13;
