@@ -6,3 +6,4 @@ strava_token.json
 TODO.md
 stravatui/data/*
 !stravatui/data/.gitkeep
+.idea/
