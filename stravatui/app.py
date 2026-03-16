@@ -16,7 +16,7 @@ from textual.widgets import (
 )
 from textual_plotext import PlotextPlot
 
-from .config import darktheme
+from .config import darktheme, lighttheme
 from .data_manager import (
     _check_cache_modified_date,
     aggregate_best_efforts,
@@ -139,7 +139,9 @@ class StravaTUIApp(App[None]):
 
     def on_mount(self) -> None:
         self.register_theme(darktheme)
-        self.theme = "darktheme"
+        self.register_theme(lighttheme)
+        # self.theme = "darktheme"
+        self.theme = "lighttheme"
 
         self.run_worker(self._load_data, exclusive=True, thread=True)
 
