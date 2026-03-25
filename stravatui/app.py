@@ -57,6 +57,10 @@ class StravaTUIApp(App[None]):
         Binding("q", "quit", "quit", show=True),
     ]
 
+    def __init__(self, theme_name: str = "darktheme", **kwargs):
+        super().__init__(**kwargs)
+        self._theme_name = theme_name
+
     def compose(self) -> ComposeResult:
         """Compose the app layout."""
         with Center(id="loading-container"):
@@ -144,8 +148,7 @@ class StravaTUIApp(App[None]):
         # self.theme = "darktheme"
         # self.theme = "lighttheme"
 
-        bg = query_terminal_background()
-        self.theme = "darktheme" if (bg is None or is_dark(bg)) else "lighttheme"
+        self.theme = self._theme_name
 
         self.run_worker(self._load_data, exclusive=True, thread=True)
 
