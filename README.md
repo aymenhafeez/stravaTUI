@@ -86,7 +86,7 @@ mypy stravatui/
 ```bash
  stravatui/
  ├── main.py                 # Entry point
- ├── api.py                  # OAuth authorization server
+ ├── api.py                  # OAuth server
  ├── Makefile                # Build and run the OAuth server
  └── stravatui/
      ├── activity_utils.py   # Data processing helpers
