@@ -16,7 +16,7 @@ from textual.widgets import (
 )
 from textual_plotext import PlotextPlot
 
-from .config import darktheme
+from .config import darktheme, lighttheme
 from .data_manager import (
     _check_cache_modified_date,
     aggregate_best_efforts,
@@ -27,6 +27,7 @@ from .data_manager import (
     ytd_run_stats,
 )
 from .race_calculator import get_race_predictions_formatted
+from .terminal_background import is_dark, query_terminal_background
 from .ui.plot_setup import setup_plots
 from .ui.tables import (
     populate_activities_table,
@@ -55,6 +56,10 @@ class StravaTUIApp(App[None]):
         Binding("4", "show_page('about-page')", "about", show=True),
         Binding("q", "quit", "quit", show=True),
     ]
+
+    def __init__(self, theme_name: str = "darktheme", **kwargs):
+        super().__init__(**kwargs)
+        self._theme_name = theme_name
 
     def compose(self) -> ComposeResult:
         """Compose the app layout."""
@@ -139,7 +144,11 @@ class StravaTUIApp(App[None]):
 
     def on_mount(self) -> None:
         self.register_theme(darktheme)
-        self.theme = "darktheme"
+        self.register_theme(lighttheme)
+        # self.theme = "darktheme"
+        # self.theme = "lighttheme"
+
+        self.theme = self._theme_name
 
         self.run_worker(self._load_data, exclusive=True, thread=True)
 

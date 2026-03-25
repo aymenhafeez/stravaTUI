@@ -62,13 +62,7 @@ python main.py
 
 ### Running the OAuth server
 
-Setup as above or build and run as a containerised service with Docker:
-
-```bash
-make build
-```
-
-Alternatively, you can run the server directly with uvicorn:
+Setup as above or run the server directly with uvicorn:
 
 ```bash
 pip install -r requirements.txt
@@ -92,10 +86,8 @@ mypy stravatui/
 ```bash
  stravatui/
  ├── main.py                 # Entry point
- ├── api.py                  # OAuth authorization server
+ ├── api.py                  # OAuth server
  ├── Makefile                # Build and run the OAuth server
- ├── Dockerfile              # Build docker container image
- ├── docker-compose.yml      # Docker orchestration configuration
  └── stravatui/
      ├── activity_utils.py   # Data processing helpers
      ├── app.py              # UI and data loading
