@@ -27,6 +27,7 @@ from .data_manager import (
     ytd_run_stats,
 )
 from .race_calculator import get_race_predictions_formatted
+from .terminal_background import is_dark, query_terminal_background
 from .ui.plot_setup import setup_plots
 from .ui.tables import (
     populate_activities_table,
@@ -141,7 +142,10 @@ class StravaTUIApp(App[None]):
         self.register_theme(darktheme)
         self.register_theme(lighttheme)
         # self.theme = "darktheme"
-        self.theme = "lighttheme"
+        # self.theme = "lighttheme"
+
+        bg = query_terminal_background()
+        self.theme = "darktheme" if (bg is None or is_dark(bg)) else "lighttheme"
 
         self.run_worker(self._load_data, exclusive=True, thread=True)
 
