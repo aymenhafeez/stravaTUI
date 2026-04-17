@@ -37,7 +37,7 @@ def all_time_run_stats() -> dict[str, str | int]:
     all_time_run_cache = DATA_DIR / "all_time_run.json"
 
     if all_time_run_cache.exists():
-        with open(all_time_run_cache, "r") as f:
+        with open(all_time_run_cache) as f:
             all_time_run_data = json.load(f)
 
         all_time_ach_count = all_time_run_data["all_time_ach_count"]
@@ -97,7 +97,7 @@ def ytd_run_stats() -> dict[str, str | int]:
     ytd_run_cache = DATA_DIR / "ytd_run.json"
 
     if ytd_run_cache.exists():
-        with open(ytd_run_cache, "r") as f:
+        with open(ytd_run_cache) as f:
             ytd_run_data = json.load(f)
 
         ytd_ach_count = ytd_run_data["ytd_ach_count"]
@@ -157,7 +157,7 @@ def get_recent_activities() -> dict[str, list[str]]:
     activities_cache = DATA_DIR / "activities.json"
 
     if activities_cache.exists():
-        with open(activities_cache, "r") as f:
+        with open(activities_cache) as f:
             activities_data = json.load(f)
 
         names = activities_data["names"]
@@ -239,7 +239,7 @@ def get_best_efforts() -> list[dict]:
     best_efforts_cache = DATA_DIR / "best_efforts.json"
 
     if best_efforts_cache.exists():
-        with open(best_efforts_cache, "r") as f:
+        with open(best_efforts_cache) as f:
             return json.load(f)
 
     client = _initialise_strava_client()
