@@ -93,7 +93,12 @@ async def my_activities():
     return HTMLResponse(f"""
     <h2>Last 5 Activities</h2>
     <ul>
-    {"".join(f"<li><strong>{a['name']}</strong> – {a['distance'] / 1000:.1f}km</li>" for a in activities)}
+    {
+        "".join(
+            f"<li><strong>{a['name']}</strong> – {a['distance'] / 1000:.1f}km</li>"
+            for a in activities
+        )
+    }
     </ul>
     <a href="/">Back</a>
     """)
