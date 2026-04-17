@@ -66,12 +66,11 @@ class StravaTUIApp(App[None]):
             yield LoadingIndicator(id="loading")
 
         with Container(id="main-content"):
-            with Center():
-                with Horizontal(id="buttons"):
-                    yield Button("overview", id="overview-button", flat=True)
-                    yield Button("recent", id="last-five-button", flat=True)
-                    yield Button("calculator", id="plot-button", flat=True)
-                    yield Button("about", id="about-button", flat=True)
+            with Center(), Horizontal(id="buttons"):
+                yield Button("overview", id="overview-button", flat=True)
+                yield Button("recent", id="last-five-button", flat=True)
+                yield Button("calculator", id="plot-button", flat=True)
+                yield Button("about", id="about-button", flat=True)
 
             with ContentSwitcher(initial="overview-page", id="content-switcher"):
                 with Container(id="overview-page"):
@@ -84,56 +83,55 @@ class StravaTUIApp(App[None]):
                     with Vertical(id="overview-right"):
                         yield PlotextPlot(id="plot-4")
 
-                with Container(id="last-five-page"):
-                    with Horizontal(id="last-five-horizontal"):
-                        with Vertical(id="last-five-left"):
-                            yield Label(last_five_label, id="table-1-label")
-                            with Center():
-                                yield DataTable(id="table-1", cell_padding=3)
-                            yield PlotextPlot(id="last-five-subplot")
-                        with Vertical(id="last-five-right"):
-                            yield Label(
-                                best_efforts_label,
-                                id="efforts-plot-label",
-                            )
-                            with Center(id="label-with-efforts-table"):
-                                yield DataTable(id="best-efforts-table", cell_padding=1)
-                            yield PlotextPlot(id="effort-plot")
-                            yield PlotextPlot(id="progression-plot")
-
-                with Container(id="plot-page"):
-                    with Vertical(id="calculator-container"):
+                with (
+                    Container(id="last-five-page"),
+                    Horizontal(id="last-five-horizontal"),
+                ):
+                    with Vertical(id="last-five-left"):
+                        yield Label(last_five_label, id="table-1-label")
+                        with Center():
+                            yield DataTable(id="table-1", cell_padding=3)
+                        yield PlotextPlot(id="last-five-subplot")
+                    with Vertical(id="last-five-right"):
                         yield Label(
-                            "Race Time Calculator (Riegel's Formula)",
-                            id="calculator-title",
+                            best_efforts_label,
+                            id="efforts-plot-label",
                         )
-                        yield Label(
-                            "Enter a recent race result:", id="calculator-subtitle"
+                        with Center(id="label-with-efforts-table"):
+                            yield DataTable(id="best-efforts-table", cell_padding=1)
+                        yield PlotextPlot(id="effort-plot")
+                        yield PlotextPlot(id="progression-plot")
+
+                with Container(id="plot-page"), Vertical(id="calculator-container"):
+                    yield Label(
+                        "Race Time Calculator (Riegel's Formula)",
+                        id="calculator-title",
+                    )
+                    yield Label("Enter a recent race result:", id="calculator-subtitle")
+
+                    with Horizontal(id="calculator-inputs"):
+                        yield Select(
+                            [
+                                ("5K", "5k"),
+                                ("10K", "10k"),
+                                ("Half Marathon", "half"),
+                                ("Marathon", "marathon"),
+                            ],
+                            prompt="select distance",
+                            id="race-distance-select",
+                        )
+                        yield Input(
+                            placeholder="MM:SS or HH:MM:SS",
+                            id="race-time-input",
+                        )
+                        yield Button(
+                            "calculate",
+                            id="calculate-button",
+                            variant="primary",
                         )
 
-                        with Horizontal(id="calculator-inputs"):
-                            yield Select(
-                                [
-                                    ("5K", "5k"),
-                                    ("10K", "10k"),
-                                    ("Half Marathon", "half"),
-                                    ("Marathon", "marathon"),
-                                ],
-                                prompt="select distance",
-                                id="race-distance-select",
-                            )
-                            yield Input(
-                                placeholder="MM:SS or HH:MM:SS",
-                                id="race-time-input",
-                            )
-                            yield Button(
-                                "calculate",
-                                id="calculate-button",
-                                variant="primary",
-                            )
-
-                        with Center(classes="race-results-container"):
-                            yield DataTable(id="race-results-table", cell_padding=10)
+                    with Center(classes="race-results-container"):
+                        yield DataTable(id="race-results-table", cell_padding=10)
 
                 with Container(id="about-page"):
                     yield Label(about_page_text, id="about-label")
