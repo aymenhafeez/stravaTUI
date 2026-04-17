@@ -101,8 +101,6 @@ mypy stravatui/
      │   ├── tables.py       # Data tables
      │   └── text_labels.py  # UI text components
      └── data/               # Cached JSON data
-
-
 ```
 
 ### Data caching
