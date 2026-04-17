@@ -1,7 +1,5 @@
 # stravaTUI
 
-**WIP**
-
 A TUI for viewing Strava run stats with a built-in race time prediction
 calculator
 
