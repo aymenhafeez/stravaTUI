@@ -63,7 +63,7 @@ def _format_pace(time_seconds: int | float, distance_meters: int | float) -> str
 def create_pace_list(time: list[str], distance: list[str]) -> list[str]:
     """Create a list of paces from a list of times and distances."""
     paces = []
-    for time_str, distance_str in zip(time, distance):
+    for time_str, distance_str in zip(time, distance, strict=False):
         try:
             time_val = float(time_str)
             distance_val = float(distance_str)

@@ -59,7 +59,7 @@ def filter_valid_activities(
     """Get indices of valid activities."""
     valid_indices = []
     for i, (act_type, dist, time, elav) in enumerate(
-        zip(activity_type, distances, times, elevation_gains)
+        zip(activity_type, distances, times, elevation_gains, strict=False)
     ):
         if not is_valid_run_activity(act_type, dist, time, elav):
             continue
@@ -86,7 +86,15 @@ def filter_activities_with_heartrate(
     valid_indices = []
 
     for i, (act_type, dist, time, elev, hr, pace) in enumerate(
-        zip(activity_type, distances, times, elevation_gains, average_heartrates, paces)
+        zip(
+            activity_type,
+            distances,
+            times,
+            elevation_gains,
+            average_heartrates,
+            paces,
+            strict=False,
+        )
     ):
         if not is_valid_run_activity(act_type, dist, time, elev, hr):
             continue
