@@ -18,7 +18,7 @@ def _hex_to_8bit(part: str) -> int:
     return (value * 255) // max_value
 
 
-def _parse_osc11_rgb(response: str):
+def _parse_osc11_rgb(response: str) -> None | tuple:
     match = OSC11_RE.search(response)
     if not match:
         return None
@@ -26,7 +26,7 @@ def _parse_osc11_rgb(response: str):
     return (_hex_to_8bit(r), _hex_to_8bit(g), _hex_to_8bit(b))
 
 
-def query_terminal_background(timeout: float = 0.12):
+def query_terminal_background(timeout: float = 0.12) -> None | tuple:
     """Return (r, g, b) or None if unavailable/unsupported"""
     try:
         fd = os.open("/dev/tty", os.O_RDWR | os.O_NOCTTY)
