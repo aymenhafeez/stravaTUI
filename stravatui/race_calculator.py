@@ -1,4 +1,4 @@
-"""Race time prediction using Riegel's formula."""
+# Race time prediction using Riegel's formula
 
 # distance mappings in meters
 RACE_DISTANCES = {
