@@ -67,10 +67,7 @@ def create_pace_list(time: list[str], distance: list[str]) -> list[str]:
         try:
             time_val = float(time_str)
             distance_val = float(distance_str)
-            if distance_val == 0:
-                pace = "N/A"
-            else:
-                pace = _format_pace(time_val, distance_val)
+            pace = "N/A" if distance_val == 0 else _format_pace(time_val, distance_val)
         except (ValueError, ZeroDivisionError):
             pace = "0"
         paces.append(pace)
