@@ -2,7 +2,6 @@ import json
 import os
 import urllib.parse
 from pathlib import Path
-from typing import Optional
 
 import requests
 from dotenv import load_dotenv
@@ -49,7 +48,7 @@ async def authorize():
 
 
 @app.get("/authorization_successful")
-async def exchange_token(code: Optional[str] = None):
+async def exchange_token(code: str | None = None) -> HTMLResponse:
     if not code:
         raise HTTPException(400, "No code")
 
