@@ -262,7 +262,7 @@ def get_best_efforts() -> list[dict]:
                 if detailed_activity.name
                 else "",
                 "date": detailed_activity.start_date.strftime("%m/%d/%y"),
-                "best_efforts": [],  # type: ignore
+                "best_efforts": [],
             }
 
             for effort in detailed_activity.best_efforts:
@@ -286,16 +286,14 @@ def get_best_efforts() -> list[dict]:
 
                 is_pr = effort.pr_rank == 1
 
-                activity_entry["best_efforts"].append(  # type: ignore
-                    {
-                        "distance": distance_formatted,
-                        "distance_m": distance_meters,
-                        "time": time_formatted,
-                        "time_seconds": time_seconds,
-                        "pace": pace,
-                        "is_pr": is_pr,
-                    }
-                )
+                activity_entry["best_efforts"].append({
+                    "distance": distance_formatted,
+                    "distance_m": distance_meters,
+                    "time": time_formatted,
+                    "time_seconds": time_seconds,
+                    "pace": pace,
+                    "is_pr": is_pr,
+                })
             all_best_efforts.append(activity_entry)
 
     with open(best_efforts_cache, "w") as f:
