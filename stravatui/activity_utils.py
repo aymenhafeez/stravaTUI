@@ -1,4 +1,4 @@
-"""Helper functions for frequent data checks and filtering."""
+# Helper functions for frequent data checks and filtering
 
 from typing import Any
 
