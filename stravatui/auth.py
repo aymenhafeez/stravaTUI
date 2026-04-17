@@ -40,7 +40,7 @@ def _initialise_strava_client() -> Client:
             "No token file found. Please run the authorisation script."
         )
 
-    with open(token_file, "r") as f:
+    with open(token_file) as f:
         user_data = json.load(f)
 
     current_time = time.time()
